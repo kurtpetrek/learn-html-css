@@ -6,7 +6,7 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
-    minifyCSS = require('gulp-minify-css'),
+//    minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
     jsonMinify = require('gulp-jsonminify'),
     concat = require('gulp-concat');
@@ -64,7 +64,7 @@ gulp.task('compass', function() {
       comments: true
     })
     .on('error', gutil.log))
-    .pipe(gulpif(env === 'production', minifyCSS()))
+//    .pipe(gulpif(env === 'production', minifyCSS()))
     .pipe(gulp.dest(outputDir + 'css'))
     .pipe(connect.reload())
 });

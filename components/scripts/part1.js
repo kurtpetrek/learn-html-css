@@ -13,7 +13,7 @@ var app = {
     choice2: "<par>",
     choice3: "<t>",
     choice4: "<text>",
-    answer: this.choice1
+    answer: "<p>"
   },{
     multipleAnswers: false,
     question: "Paragraph tags are what type of element?",
@@ -21,7 +21,7 @@ var app = {
     choice2: "Box",
     choice3: "Block",
     choice4: "None of the above",
-    answer: this.choice3
+    answer: "Block"
   }],
   
   cleanHTMLString: function(str){
@@ -36,6 +36,7 @@ var app = {
     str = str.join("");
     return str;
   },
+  
   
   createEasyEl: function(elType, clsNames) {
     var ee = document.createElement(elType);

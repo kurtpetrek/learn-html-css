@@ -9,7 +9,7 @@ var app = {
     answer2: "<par>",
     answer3: "<t>",
     answer4: "<text>",
-    correctAnswer: this.answerA
+    correctAnswer: this.answer1
   },{
     multipleAnswers: false,
     question: "P tags are what type of element",
@@ -17,7 +17,7 @@ var app = {
     answer2: "Box",
     answer3: "Block",
     answer4: "None of the above",
-    correctAnswer: this.answerA
+    correctAnswer: this.answer3
   }],
   
   cleanHTMLString: function(str){

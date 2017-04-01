@@ -11,6 +11,14 @@ var app = {
     answer3: "<t>",
     answer4: "<text>",
     correctAnswer: this.answerA
+  },{
+    multipleAnswers: false,
+    question: "P tags are what type of element",
+    answer1: "Inline",
+    answer2: "Box",
+    answer3: "Block",
+    answer4: "None of the above",
+    correctAnswer: this.answerA
   }],
   
   cleanHTMLString: function(str){
@@ -61,7 +69,7 @@ var app = {
   }
 }; // ends app
 
-app.createQuestion(app.questions[0]);
+app.createQuestion(app.questions[1]);
 
 
 

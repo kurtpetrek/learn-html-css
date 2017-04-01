@@ -19,11 +19,18 @@ h1 {
   border-bottom: 3px solid $clr-1;
 }
 
+h2 {
+  font-size: 1.4rem;
+  padding: .5em;
+  text-align: center;
+  color: $clr-1;
+}
+
 .question-container-question {
   font-size: 2rem;
   background: $clr-1;
   color: $clr-3;
-  width: 40%;
+  width: 80%;
   padding: 1rem;
   margin: 2em auto;
   line-height: 1.5em;
@@ -55,7 +62,7 @@ h1 {
   background: $clr-1;
   color: $clr-3;
   padding: .5rem;
-  padding-right: 2rem;
+  padding-right: 4rem;
   margin: 1rem;
   cursor: pointer;
   position: relative;
@@ -97,3 +104,23 @@ h1 {
     height: 1.3rem;
   }
 }
+
+.btn-container {
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  font-size: 1.3em;
+  padding: .5em;
+  background: $clr-5;
+  color: $clr-1;
+  margin: 30px;
+  cursor: pointer;
+  border-radius: 10px;
+  border-top: $clr-1 5px solid;
+  border-bottom: $clr-1 5px solid;
+  border-left: $clr-1 3px solid;
+  border-right: $clr-1 3px solid;
+}
+

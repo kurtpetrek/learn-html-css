@@ -2,6 +2,7 @@
 /* part1.js 
 ==================================== */
 var app = {
+  currentQuestion: {},
   
   questions: [{
     multipleAnswers: false,
@@ -13,7 +14,7 @@ var app = {
     answer: this.choice1
   },{
     multipleAnswers: false,
-    question: "Paragraph tags are what type of element",
+    question: "Paragraph tags are what type of element?",
     choice1: "Inline",
     choice2: "Box",
     choice3: "Block",

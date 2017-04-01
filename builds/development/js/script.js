@@ -6,19 +6,19 @@ var app = {
   questions: [{
     multipleAnswers: false,
     question: "What tag is used to create a paragraph?",
-    answer1: "<p>",
-    answer2: "<par>",
-    answer3: "<t>",
-    answer4: "<text>",
-    correctAnswer: this.answerA
+    choice1: "<p>",
+    choice2: "<par>",
+    choice3: "<t>",
+    choice4: "<text>",
+    answer: this.choice1
   },{
     multipleAnswers: false,
-    question: "P tags are what type of element",
-    answer1: "Inline",
-    answer2: "Box",
-    answer3: "Block",
-    answer4: "None of the above",
-    correctAnswer: this.answerA
+    question: "Paragraph tags are what type of element",
+    choice1: "Inline",
+    choice2: "Box",
+    choice3: "Block",
+    choice4: "None of the above",
+    answer: this.choice3
   }],
   
   cleanHTMLString: function(str){
@@ -61,7 +61,7 @@ var app = {
     choices = this.createEasyEl("ol", "question-container-choices");
     for (var x = 0; x < 4; x ++) {
       var answerEl = this.createEasyEl("li", "choice");
-      var current = "answer" + (x + 1);
+      var current = "choice" + (x + 1);
       answerEl.innerHTML = this.cleanHTMLString(obj[current]);
       choices.appendChild(answerEl);
     }

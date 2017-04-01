@@ -20,6 +20,15 @@ var app = {
     choice4: "None of the above",
     answer: "Block",
     answerExplained: "Paragraphs by default are block level elements."
+  },{
+    multipleAnswers: false,
+    question: "There are 6 levels of headings",
+    choice1: "True",
+    choice2: "False",
+    choice3: "",
+    choice4: "",
+    answer: "True",
+    answerExplained: "There are 6 levels of headings h1 -h6."
   }],
   
   cleanHTMLString: function(str){
@@ -86,10 +95,9 @@ var app = {
         
         document.querySelector("#main-btn").innerHTML = "Next Question";
       }
-    } else {
+    } else if(!app.playing) {
       app.questions.shift();
       app.startNewQuestion();
-      console.log("foo");
     }
   },
   
@@ -111,8 +119,10 @@ var app = {
     for (var x = 0; x < 4; x ++) {
       var answerEl = this.createEasyEl("li", "choice");
       var current = "choice" + (x + 1);
-      answerEl.innerHTML = this.cleanHTMLString(obj[current]);
-      choices.appendChild(answerEl);
+      if(obj[current] != ""){
+        answerEl.innerHTML = this.cleanHTMLString(obj[current]);
+        choices.appendChild(answerEl);
+      }
     }
     choices.addEventListener("click", this.listenForUserChoice, false);
     document.querySelector("#question-container").appendChild(choices);

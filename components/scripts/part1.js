@@ -25,7 +25,7 @@ var app = {
     return str;
   },
   
-  createEasyEl: function (elType, clsNames){
+  createEasyEl: function(elType, clsNames) {
     var ee = document.createElement(elType);
     if(Array.isArray(clsNames)){
       for (var x = 0; x < clsNames.length; x++){
@@ -57,7 +57,6 @@ var app = {
       choices.appendChild(answerEl);
     }
     document.querySelector("#question-container").appendChild(choices);
-    
   }
 }; // ends app
 

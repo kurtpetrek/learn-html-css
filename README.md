@@ -1,12 +1,4 @@
-#Workflow Template
+#Learn HTML and CSS
 
- |  helpful commands |
-\|/                 \|/
- V                   V
- 
-gulp
-ctrl c
-
-NODE_ENV=production gulp
-
+A question game to help students learn html and css
 

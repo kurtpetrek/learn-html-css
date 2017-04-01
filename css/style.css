@@ -70,11 +70,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
 }
 
 /* line 9, ../components/sass/_base.scss */
+* {
+  box-sizing: border-box;
+}
+
+/* line 13, ../components/sass/_base.scss */
 body {
   background: #CDD7D6;
 }
 
-/* line 13, ../components/sass/_base.scss */
+/* line 17, ../components/sass/_base.scss */
 h1 {
   font-size: 2rem;
   text-align: center;
@@ -83,14 +88,14 @@ h1 {
   border-bottom: 3px solid #102542;
 }
 
-/* line 22, ../components/sass/_base.scss */
+/* line 26, ../components/sass/_base.scss */
 h2 {
   font-size: 1.4rem;
   padding: .5em;
   color: #102542;
 }
 
-/* line 29, ../components/sass/_base.scss */
+/* line 33, ../components/sass/_base.scss */
 .question-container-question {
   font-size: 2rem;
   background: #102542;
@@ -101,7 +106,7 @@ h2 {
   line-height: 1.5em;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 }
-/* line 39, ../components/sass/_base.scss */
+/* line 43, ../components/sass/_base.scss */
 .question-container-question:first-letter {
   float: left;
   background: #CDD7D6;
@@ -113,7 +118,7 @@ h2 {
   box-shadow: inset 2px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* line 51, ../components/sass/_base.scss */
+/* line 55, ../components/sass/_base.scss */
 .question-container-choices {
   width: 60%;
   margin: 2rem auto;
@@ -124,7 +129,7 @@ h2 {
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-/* line 61, ../components/sass/_base.scss */
+/* line 65, ../components/sass/_base.scss */
 .choice, .chosen, .chosen:hover {
   background: #102542;
   color: #CDD7D6;
@@ -136,7 +141,7 @@ h2 {
   transition: .5s;
   box-shadow: inset 3px 3px rgba(0, 0, 0, 0.5);
 }
-/* line 72, ../components/sass/_base.scss */
+/* line 76, ../components/sass/_base.scss */
 .choice::after, .chosen::after, .chosen:hover::after {
   content: "";
   position: absolute;
@@ -149,20 +154,20 @@ h2 {
   transition: .5s;
 }
 
-/* line 85, ../components/sass/_base.scss */
+/* line 89, ../components/sass/_base.scss */
 .choice:hover, .chosen:hover, .chosen {
   background: #CDD7D6;
   color: #102542;
   padding-left: 1rem;
   font-size: 1.3rem;
 }
-/* line 90, ../components/sass/_base.scss */
+/* line 94, ../components/sass/_base.scss */
 .choice:hover::after, .chosen:hover::after, .chosen::after {
   border: 5px solid #102542;
   right: .5rem;
 }
 
-/* line 98, ../components/sass/_base.scss */
+/* line 102, ../components/sass/_base.scss */
 .chosen::after, .chosen:hover::after {
   border: 0px solid #102542;
   border-right: 5px solid #102542;
@@ -172,17 +177,17 @@ h2 {
   height: 1.3rem;
 }
 
-/* line 108, ../components/sass/_base.scss */
+/* line 112, ../components/sass/_base.scss */
 .text-center {
   text-align: center;
 }
 
-/* line 111, ../components/sass/_base.scss */
+/* line 115, ../components/sass/_base.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 115, ../components/sass/_base.scss */
+/* line 119, ../components/sass/_base.scss */
 .btn {
   display: inline-block;
   font-size: 1.3em;
@@ -202,15 +207,39 @@ h2 {
   box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
   transition: .25s;
 }
-/* line 134, ../components/sass/_base.scss */
+/* line 138, ../components/sass/_base.scss */
 .btn:hover {
   left: -2px;
   top: -2px;
   box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.3);
 }
-/* line 139, ../components/sass/_base.scss */
+/* line 143, ../components/sass/_base.scss */
 .btn:active {
   left: 1px;
   top: 1px;
   box-shadow: 2px 2px rgba(0, 0, 0, 0.7);
+}
+
+/* line 151, ../components/sass/_base.scss */
+.question-wrong {
+  width: 80%;
+  margin: auto;
+  background: #F87060;
+  padding: 1em;
+}
+/* line 157, ../components/sass/_base.scss */
+.question-wrong:first-line {
+  font-size: 1.3rem;
+}
+
+/* line 162, ../components/sass/_base.scss */
+.question-right {
+  width: 80%;
+  margin: auto;
+  background: #FFFFFF;
+  padding: 1em;
+}
+/* line 168, ../components/sass/_base.scss */
+.question-right:first-line {
+  font-size: 1.3rem;
 }

@@ -1,11 +1,7 @@
 var app = {
-  
   currentQuestion: {},
-  
   score: 0,
-  
   playing: true,
-  
   questions: [{
     multipleAnswers: false,
     question: "What tag is used to create a paragraph?",
@@ -13,7 +9,8 @@ var app = {
     choice2: "<par>",
     choice3: "<t>",
     choice4: "<text>",
-    answer: "<p>"
+    answer: "<p>",
+    answerExplained: "The <p> tag is used to create a paragraph. An opening <p> tag starts a paragraph and the closing </p> tag ends a paragraph."
   },{
     multipleAnswers: false,
     question: "Paragraph tags are what type of element?",
@@ -21,7 +18,8 @@ var app = {
     choice2: "Box",
     choice3: "Block",
     choice4: "None of the above",
-    answer: "Block"
+    answer: "Block",
+    answerExplained: "Paragraphs by default are block level elements."
   }],
   
   cleanHTMLString: function(str){
@@ -66,21 +64,32 @@ var app = {
         }
       }
     }
-    
   },
   
   testUserSubmit: function(){
-    if(app.playing){
+    if(app.playing && document.body.contains(document.querySelector(".chosen"))){
+      app.playing = false;
+      
       if(!app.currentQuestion.multipleAnswers){
         var choice = "";
         choice = document.querySelector(".chosen").innerHTML;
-        console.log(choice);
         if(choice == app.cleanHTMLString(app.currentQuestion.answer)){
-          document.querySelector(".question-feedback").innerHTML = "Correct!";
+          document.querySelector(".question-feedback").innerHTML = "Correct! <br>";
+          document.querySelector(".question-feedback").classList.add("question-right");
+          app.score++;
+          document.querySelector("#score-holder").innerHTML = app.score;
         } else {
-          document.querySelector(".question-feedback").innerHTML = "Wrong!";
+          document.querySelector(".question-feedback").innerHTML = "Sorry, incorrect <br>";
+          document.querySelector(".question-feedback").classList.add("question-wrong");
         }
+        document.querySelector(".question-feedback").innerHTML += app.cleanHTMLString(app.currentQuestion.answerExplained);
+        
+        document.querySelector("#main-btn").innerHTML = "Next Question";
       }
+    } else {
+      app.questions.shift();
+      app.startNewQuestion();
+      console.log("foo");
     }
   },
   
@@ -88,6 +97,8 @@ var app = {
     var question,
         feedback,
         choices;
+    app.playing = true;
+    document.querySelector("#main-btn").innerHTML = "Submit Answer";
     document.querySelector("#question-container").innerHTML = "";
     question = this.createEasyEl("p", "question-container-question");
     question.innerHTML = this.cleanHTMLString(obj.question);

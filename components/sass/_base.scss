@@ -6,6 +6,10 @@
   font-family: 'Merriweather', serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: $clr-3;
 }
@@ -142,5 +146,27 @@ h2 {
     box-shadow: 2px 2px rgba(0,0,0,0.7);
   }
   
+}
+
+.question-wrong {
+  width: 80%;
+  margin: auto;
+  background: $clr-2;
+  padding: 1em;
+  
+  &:first-line {
+    font-size: 1.3rem;
+  }
+}
+
+.question-right {
+  width: 80%;
+  margin: auto;
+  background: $clr-5;
+  padding: 1em;
+  
+  &:first-line {
+    font-size: 1.3rem;
+  }
 }
 

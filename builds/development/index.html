@@ -7,23 +7,25 @@
 </head>
 <body>
   <h1>Learn HTML and CSS</h1>
-  <h2>Score: <span id="score-holder"></span></h2>
+  <h2>Score: <span id="score-holder">0</span></h2>
+  <div class="text-right">
+<!--    <p class="btn-right btn" id="next-question">Next Question</p>-->
+  </div>
   <div class="question-container" id="question-container">
     <p class="question-container-question">
       What tag is used to create a paragraph?
     </p>
     <div class="question-feedback"></div>
     <ol class="question-container-choices">
-      <li class="choice choosen">&lt;p&gt;</li>
+      <li class="choice chosen">&lt;p&gt;</li>
       <li class="choice">&lt;par&gt;</li>
       <li class="choice">&lt;t&gt;</li>
       <li class="choice">&lt;text&gt;</li>
     </ol>
   </div>
   
-  <div class="btn-container">
-    <p class="btn-center btn" id="submit-answer">Submit Answer</p> 
-    <p class="btn-right btn" id="next-question">Next Question</p>
+  <div class="text-center">
+    <p class="btn-center btn" id="main-btn">Submit Answer</p> 
   </div>
 
   <script src="js/script.js"></script>

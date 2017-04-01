@@ -87,7 +87,6 @@ h1 {
 h2 {
   font-size: 1.4rem;
   padding: .5em;
-  text-align: center;
   color: #102542;
 }
 
@@ -98,7 +97,7 @@ h2 {
   color: #CDD7D6;
   width: 80%;
   padding: 1rem;
-  margin: 2em auto;
+  margin: 1em auto 2em;
   line-height: 1.5em;
   box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
 }
@@ -126,7 +125,7 @@ h2 {
 }
 
 /* line 61, ../components/sass/_base.scss */
-.choice, .choosen, .choosen:hover {
+.choice, .chosen, .chosen:hover {
   background: #102542;
   color: #CDD7D6;
   padding: .5rem;
@@ -138,7 +137,7 @@ h2 {
   box-shadow: inset 3px 3px rgba(0, 0, 0, 0.5);
 }
 /* line 72, ../components/sass/_base.scss */
-.choice::after, .choosen::after, .choosen:hover::after {
+.choice::after, .chosen::after, .chosen:hover::after {
   content: "";
   position: absolute;
   right: 1rem;
@@ -151,20 +150,20 @@ h2 {
 }
 
 /* line 85, ../components/sass/_base.scss */
-.choice:hover, .choosen:hover, .choosen {
+.choice:hover, .chosen:hover, .chosen {
   background: #CDD7D6;
   color: #102542;
   padding-left: 1rem;
   font-size: 1.3rem;
 }
 /* line 90, ../components/sass/_base.scss */
-.choice:hover::after, .choosen:hover::after, .choosen::after {
+.choice:hover::after, .chosen:hover::after, .chosen::after {
   border: 5px solid #102542;
   right: .5rem;
 }
 
 /* line 98, ../components/sass/_base.scss */
-.choosen::after, .choosen:hover::after {
+.chosen::after, .chosen:hover::after {
   border: 0px solid #102542;
   border-right: 5px solid #102542;
   border-bottom: 5px solid #102542;
@@ -174,22 +173,44 @@ h2 {
 }
 
 /* line 108, ../components/sass/_base.scss */
-.btn-container {
+.text-center {
   text-align: center;
 }
 
-/* line 112, ../components/sass/_base.scss */
+/* line 111, ../components/sass/_base.scss */
+.text-right {
+  text-align: right;
+}
+
+/* line 115, ../components/sass/_base.scss */
 .btn {
   display: inline-block;
   font-size: 1.3em;
   padding: .5em;
   background: #FFFFFF;
   color: #102542;
-  margin: 30px;
+  margin: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
   border-top: #102542 5px solid;
   border-bottom: #102542 5px solid;
   border-left: #102542 3px solid;
   border-right: #102542 3px solid;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  box-shadow: 5px 5px 2px rgba(0, 0, 0, 0.5);
+  transition: .25s;
+}
+/* line 134, ../components/sass/_base.scss */
+.btn:hover {
+  left: -2px;
+  top: -2px;
+  box-shadow: 7px 7px 2px rgba(0, 0, 0, 0.3);
+}
+/* line 139, ../components/sass/_base.scss */
+.btn:active {
+  left: 1px;
+  top: 1px;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.7);
 }

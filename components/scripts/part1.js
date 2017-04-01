@@ -1,7 +1,10 @@
-/* part1.js 
-==================================== */
 var app = {
+  
   currentQuestion: {},
+  
+  score: 0,
+  
+  playing: true,
   
   questions: [{
     multipleAnswers: false,
@@ -46,6 +49,40 @@ var app = {
     return ee;
   },
   
+  listenForUserChoice: function(e){
+    if(app.playing){
+      if(e.target.classList.contains("chosen")){
+        e.target.classList.remove("chosen")
+      } else if(e.target.classList.contains("choice")){
+        if(!app.currentQuestion.multipleAnswers){
+          var choiceEls = document.querySelectorAll(".choice");
+          for(var x = 0; x < choiceEls.length; x++){
+            if(choiceEls[x].classList.contains("chosen")){
+              choiceEls[x].classList.remove("chosen");
+            }
+          }
+          e.target.classList.add("chosen");
+        }
+      }
+    }
+    
+  },
+  
+  testUserSubmit: function(){
+    if(app.playing){
+      if(!app.currentQuestion.multipleAnswers){
+        var choice = "";
+        choice = document.querySelector(".chosen").innerHTML;
+        console.log(choice);
+        if(choice == app.cleanHTMLString(app.currentQuestion.answer)){
+          document.querySelector(".question-feedback").innerHTML = "Correct!";
+        } else {
+          document.querySelector(".question-feedback").innerHTML = "Wrong!";
+        }
+      }
+    }
+  },
+  
   createQuestion: function(obj){
     var question,
         feedback,
@@ -65,9 +102,19 @@ var app = {
       answerEl.innerHTML = this.cleanHTMLString(obj[current]);
       choices.appendChild(answerEl);
     }
+    choices.addEventListener("click", this.listenForUserChoice, false);
     document.querySelector("#question-container").appendChild(choices);
+  },
+  
+  startNewQuestion: function() {
+    this.currentQuestion = this.questions[0];
+    this.createQuestion(this.currentQuestion);
+  },
+  
+  start: function(){
+    document.querySelector("#main-btn").addEventListener("click", app.testUserSubmit, false);
+    this.startNewQuestion();
   }
 }; // ends app
 
-app.createQuestion(app.questions[1]);
-
+app.start();

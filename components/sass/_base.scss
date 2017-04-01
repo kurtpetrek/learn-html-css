@@ -22,7 +22,7 @@ h1 {
 h2 {
   font-size: 1.4rem;
   padding: .5em;
-  text-align: center;
+//  text-align: center;
   color: $clr-1;
 }
 
@@ -32,7 +32,7 @@ h2 {
   color: $clr-3;
   width: 80%;
   padding: 1rem;
-  margin: 2em auto;
+  margin: 1em auto 2em;
   line-height: 1.5em;
   box-shadow: 5px 5px rgba(0,0,0,0.5);
   
@@ -82,7 +82,7 @@ h2 {
   }
 }
 
-.choice:hover, .choosen{
+.choice:hover, .chosen{
   background: $clr-3;
   color: $clr-1;
   padding-left: 1rem;
@@ -93,7 +93,7 @@ h2 {
   }
 }
 
-.choosen, .choosen:hover {
+.chosen, .chosen:hover {
   @extend .choice;
   &::after {
     border: 0px solid $clr-1;
@@ -105,8 +105,11 @@ h2 {
   }
 }
 
-.btn-container {
+.text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 
 .btn {
@@ -115,12 +118,29 @@ h2 {
   padding: .5em;
   background: $clr-5;
   color: $clr-1;
-  margin: 30px;
+  margin: 10px 30px;
   cursor: pointer;
   border-radius: 10px;
   border-top: $clr-1 5px solid;
   border-bottom: $clr-1 5px solid;
   border-left: $clr-1 3px solid;
   border-right: $clr-1 3px solid;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  box-shadow: 5px 5px 2px rgba(0,0,0,0.5);
+  transition: .25s;
+  
+  &:hover {
+    left: -2px;
+    top: -2px;
+    box-shadow: 7px 7px 2px rgba(0,0,0,0.3);
+  }
+  &:active {
+    left: 1px;
+    top: 1px;
+    box-shadow: 2px 2px rgba(0,0,0,0.7);
+  }
+  
 }
 

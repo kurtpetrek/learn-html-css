@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Merriweather");
 /* line 5, ../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -63,4 +64,103 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/*# sourceMappingURL=style.css.map */
+/* line 5, ../components/sass/_base.scss */
+*:root {
+  font-family: 'Merriweather', serif;
+}
+
+/* line 9, ../components/sass/_base.scss */
+body {
+  background: #CDD7D6;
+}
+
+/* line 13, ../components/sass/_base.scss */
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  padding: .5em;
+  color: #102542;
+  border-bottom: 3px solid #102542;
+}
+
+/* line 22, ../components/sass/_base.scss */
+.question-container-question {
+  font-size: 2rem;
+  background: #102542;
+  color: #CDD7D6;
+  width: 40%;
+  padding: 1rem;
+  margin: 2em auto;
+  line-height: 1.5em;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+/* line 32, ../components/sass/_base.scss */
+.question-container-question:first-letter {
+  float: left;
+  background: #CDD7D6;
+  color: #102542;
+  display: inline-block;
+  padding: 0 .4rem;
+  margin-right: .2rem;
+  font-size: 2.6rem;
+  box-shadow: inset 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* line 44, ../components/sass/_base.scss */
+.question-container-choices {
+  width: 60%;
+  margin: 2rem auto;
+  padding: .5rem;
+  background: #B3A394;
+  list-style: upper-latin;
+  list-style-position: inside;
+  box-shadow: 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* line 54, ../components/sass/_base.scss */
+.choice, .choosen, .choosen:hover {
+  background: #102542;
+  color: #CDD7D6;
+  padding: .5rem;
+  padding-right: 2rem;
+  margin: 1rem;
+  cursor: pointer;
+  position: relative;
+  transition: .5s;
+  box-shadow: inset 3px 3px rgba(0, 0, 0, 0.5);
+}
+/* line 65, ../components/sass/_base.scss */
+.choice::after, .choosen::after, .choosen:hover::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  border: 5px solid #CDD7D6;
+  transition: .5s;
+}
+
+/* line 78, ../components/sass/_base.scss */
+.choice:hover, .choosen:hover, .choosen {
+  background: #CDD7D6;
+  color: #102542;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+}
+/* line 83, ../components/sass/_base.scss */
+.choice:hover::after, .choosen:hover::after, .choosen::after {
+  border: 5px solid #102542;
+  right: .5rem;
+}
+
+/* line 91, ../components/sass/_base.scss */
+.choosen::after, .choosen:hover::after {
+  border: 0px solid #102542;
+  border-right: 5px solid #102542;
+  border-bottom: 5px solid #102542;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: .5rem;
+  height: 1.3rem;
+}

@@ -31,6 +31,19 @@ var app = {
     answerExplained: "There are 6 levels of headings h1 -h6."
   }],
   
+  shuffleArray: function(array){
+    var currentIndex = array.length, temporaryValue, randomIndex;
+    while (0 !== currentIndex) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex -= 1;
+
+      temporaryValue = array[currentIndex];
+      array[currentIndex] = array[randomIndex];
+      array[randomIndex] = temporaryValue;
+    }
+    return array;
+  },
+  
   cleanHTMLString: function(str){
     str = str.split("");
     for(var x = 0; x < str.length; x++){
@@ -86,11 +99,14 @@ var app = {
           document.querySelector(".question-feedback").innerHTML = "Correct! <br>";
           document.querySelector(".question-feedback").classList.add("question-right");
           app.score++;
-          document.querySelector("#score-holder").innerHTML = app.score;
         } else {
+          app.questions.push(app.currentQuestion);
           document.querySelector(".question-feedback").innerHTML = "Sorry, incorrect <br>";
           document.querySelector(".question-feedback").classList.add("question-wrong");
+          app.score--;
         }
+        document.querySelector("#score-holder").innerHTML = app.score;
+        
         document.querySelector(".question-feedback").innerHTML += app.cleanHTMLString(app.currentQuestion.answerExplained);
         
         document.querySelector("#main-btn").innerHTML = "Next Question";
@@ -134,6 +150,7 @@ var app = {
   },
   
   start: function(){
+    app.questions = app.shuffleArray(app.questions);
     document.querySelector("#main-btn").addEventListener("click", app.testUserSubmit, false);
     this.startNewQuestion();
   }

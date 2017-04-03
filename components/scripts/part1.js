@@ -47,7 +47,7 @@ var questions = [{
     choice3: "<h1>",
     choice4: "<h-1>",
     answer: "<h1>",
-    answerExplained: "<a> tags are used to link web pages together, they require a href attribute."
+    answerExplained: "<h1> tag starts a first level heading and </h1> closes it, <h1>Hello World!</h1>"
   },{
     multipleAnswers: false,
     question: "What is the default alignment for elements?",
@@ -93,6 +93,24 @@ var questions = [{
     choice4: '',
     answer: 'In the styled elements opening tag using the style attribute.',
     answerExplained: 'Inline styles are written within the elements html, <p style="color: red;">Hello World</p>'
+  },{
+    multipleAnswers: false,
+    question: "IDs should be used only once per page.",
+    choice1: 'True',
+    choice2: 'False',
+    choice3: '',
+    choice4: '',
+    answer: 'True',
+    answerExplained: 'IDs are unique identifiers that should only be used once per page.'
+  },{
+    multipleAnswers: false,
+    question: "Classes should be used only once per page.",
+    choice1: 'True',
+    choice2: 'False',
+    choice3: '',
+    choice4: '',
+    answer: 'False',
+    answerExplained: 'Classes can be used throughout a html document for styling different elements the same way.'
   }];
 
 var savedQuestions = questions.slice();
@@ -252,5 +270,3 @@ var start = function () {
 
 
 document.querySelector("#main-btn").addEventListener("click", start, false);
-
-// app.start();

@@ -111,6 +111,51 @@ var questions = [{
     choice4: '',
     answer: 'False',
     answerExplained: 'Classes can be used throughout a html document for styling different elements the same way.'
+  },{
+    multipleAnswers: false,
+    question: "What css would be used to set the background color of the body of a web page to #CBCBCB",
+    choice1: 'document {background-color: #CBCBCB;}',
+    choice2: 'head {background-color: #CBCBCB;}',
+    choice3: 'body {background-color: #CBCBCB;}',
+    choice4: 'elements {background-color: #CBCBCB;}',
+    answer: 'body {background-color: #CBCBCB;}',
+    answerExplained: 'In order to change the background of the body you would first select the body element and then set the background-color or background css properties, body { background-color: #CBCBCB; }'
+  },{
+    multipleAnswers: false,
+    question: "Which is the proper pseudo class CSS syntax for a hover on an <a> tag?",
+    choice1: 'a;hover {color: #7348FB;}',
+    choice2: '<a>:hover { color: #7348FB; }',
+    choice3: 'a:hover-in { color: #7348FB; }',
+    choice4: 'a:hover { color: #7348FB; }',
+    answer: 'a:hover { color: #7348FB; }',
+    answerExplained: 'The hover class is used in this way a:hover { color: #7348FB; }'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following is not a valid value for the css float property?",
+    choice1: 'left',
+    choice2: 'center',
+    choice3: 'right',
+    choice4: 'none',
+    answer: 'center',
+    answerExplained: 'The float property can be set to left, right or none. There is no float center.'
+  },{
+    multipleAnswers: false,
+    question: "The space between an element's content and border is known as...",
+    choice1: 'content-wrap',
+    choice2: 'nesting',
+    choice3: 'margin',
+    choice4: 'padding',
+    answer: 'padding',
+    answerExplained: 'Padding is the space between an elements content and border.'
+  },{
+    multipleAnswers: false,
+    question: "The css selector chain used to target a tags within a nav element is",
+    choice1: 'a nav',
+    choice2: '.nav a',
+    choice3: 'nav a',
+    choice4: 'nav + a',
+    answer: 'nav a',
+    answerExplained: '"nav a" would select all a tags within a nav element.'
   }];
 
 var savedQuestions = questions.slice();

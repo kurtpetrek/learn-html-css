@@ -160,11 +160,22 @@ var app = {
   },
   
   startNewQuestion: function() {
-    this.currentQuestion = this.questions[0];
-    this.createQuestion(this.currentQuestion);
+    if(app.questions.length > 0){
+      app.currentQuestion = app.questions[0];
+      app.createQuestion(app.currentQuestion);
+    } else {
+      var el = this.createEasyEl("p", "question-container-question");
+      el.innerHTML = "You finished!<br>Your final score is " + app.score + "!";
+      document.querySelector("#question-container").innerHTML = "";
+      document.querySelector("#question-container").appendChild(el);
+      document.querySelector("#main-btn").addEventListener("click", app.start, false);
+      document.querySelector("#main-btn").innerHTML = "Restart";
+    }
+    
   },
   
   start: function(){
+   // app.questions = app.savedQuestions.slice();
     document.querySelector("#main-btn").removeEventListener("click", app.start, false);
     app.questions = app.shuffleArray(app.questions);
     document.querySelector("#main-btn").addEventListener("click", app.testUserSubmit, false);

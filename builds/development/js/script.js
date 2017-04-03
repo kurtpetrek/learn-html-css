@@ -1,189 +1,194 @@
-var app = {
-  currentQuestion: {},
-  score: 0,
-  playing: true,
-  appStarted: false,
-  questions: [{
-    multipleAnswers: false,
-    question: "What tag is used to create a paragraph?",
-    choice1: "<p>",
-    choice2: "<par>",
-    choice3: "<t>",
-    choice4: "<text>",
-    answer: "<p>",
-    answerExplained: "The <p> tag is used to create a paragraph. An opening <p> tag starts a paragraph and the closing </p> tag ends a paragraph."
-  },{
-    multipleAnswers: false,
-    question: "Paragraph tags are what type of element?",
-    choice1: "Inline",
-    choice2: "Box",
-    choice3: "Block",
-    choice4: "None of the above",
-    answer: "Block",
-    answerExplained: "Paragraphs by default are block level elements."
-  },{
-    multipleAnswers: false,
-    question: "There are 6 levels of headings",
-    choice1: "True",
-    choice2: "False",
-    choice3: "",
-    choice4: "",
-    answer: "True",
-    answerExplained: "There are 6 levels of headings h1 -h6."
-  }],
-  
-  shuffleArray: function(array){
-    var currentIndex = array.length, temporaryValue, randomIndex;
-    while (0 !== currentIndex) {
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex -= 1;
+var currentQuestion = {};
+var score = 0,
+  playing = true,
+  appStarted = false;
 
-      temporaryValue = array[currentIndex];
-      array[currentIndex] = array[randomIndex];
-      array[randomIndex] = temporaryValue;
-    }
-    return array;
-  },
-  
-  cleanHTMLString: function(str){
-    str = str.split("");
-    for(var x = 0; x < str.length; x++){
-      if(str[x] == "<"){
-        str[x] = "&lt;"
-      } else if(str[x] == ">"){
-        str[x] = "&gt;"
-      }
-    }
-    str = str.join("");
-    return str;
-  },
-  
-  
-  createEasyEl: function(elType, clsNames) {
-    var ee = document.createElement(elType);
-    if(Array.isArray(clsNames)){
-      for (var x = 0; x < clsNames.length; x++){
-        ee.classList.add(clsNames[x]);
-      }
-    } else if(typeof clsNames == "string") {
-      ee.classList.add(clsNames);
-    }
-    return ee;
-  },
-  
-  listenForUserChoice: function(e){
-    if(app.playing){
-      if(e.target.classList.contains("chosen")){
-        e.target.classList.remove("chosen")
-      } else if(e.target.classList.contains("choice")){
-        if(!app.currentQuestion.multipleAnswers){
-          var choiceEls = document.querySelectorAll(".choice");
-          for(var x = 0; x < choiceEls.length; x++){
-            if(choiceEls[x].classList.contains("chosen")){
-              choiceEls[x].classList.remove("chosen");
-            }
-          }
-          e.target.classList.add("chosen");
-        }
-      }
-    } else {
-      if(!document.querySelector("#main-btn").classList.contains("wiggle")){
-        document.querySelector("#main-btn").classList.add("wiggle");
-        setTimeout(function(){
-          document.querySelector("#main-btn").classList.remove("wiggle");
-        }, 500);
-      } 
-    }
-  },
-  
-  testUserSubmit: function(){
-    if(app.playing && document.body.contains(document.querySelector(".chosen"))){
-      app.playing = false;
-      
-      if(!app.currentQuestion.multipleAnswers){
-        var choice = "";
-        choice = document.querySelector(".chosen").innerHTML;
-        if(choice == app.cleanHTMLString(app.currentQuestion.answer)){
-          document.querySelector(".question-feedback").innerHTML = "Correct! <br>";
-          document.querySelector(".question-feedback").classList.add("question-right");
-          app.score++;
-        } else {
-          app.questions.push(app.currentQuestion);
-          document.querySelector(".question-feedback").innerHTML = "Sorry, incorrect <br>";
-          document.querySelector(".question-feedback").classList.add("question-wrong");
-          app.score--;
-        }
-        document.querySelector("#score-holder").innerHTML = app.score;
-        
-        document.querySelector(".question-feedback").innerHTML += app.cleanHTMLString(app.currentQuestion.answerExplained);
-        
-        document.querySelector("#main-btn").innerHTML = "Next Question";
-      }
-    } else if(app.playing && !(document.body.contains(document.querySelector(".chosen")))){
-      if(!document.querySelector(".question-container-choices").classList.contains("wiggle")){
-        document.querySelector(".question-container-choices").classList.add("wiggle");
-        setTimeout(function(){
-          document.querySelector(".question-container-choices").classList.remove("wiggle");
-        }, 500);
-      } 
-    } else if(!app.playing) {
-      app.questions.shift();
-      app.startNewQuestion();
-    }
-  },
-  
-  createQuestion: function(obj){
-    var question,
-        feedback,
-        choices;
-    app.playing = true;
-    document.querySelector("#main-btn").innerHTML = "Submit Answer";
-    document.querySelector("#question-container").innerHTML = "";
-    question = this.createEasyEl("p", "question-container-question");
-    question.innerHTML = this.cleanHTMLString(obj.question);
-    document.querySelector("#question-container").appendChild(question);
-    
-    feedback = this.createEasyEl("div", "question-feedback");
-    document.querySelector("#question-container").appendChild(feedback);
-    
-    choices = this.createEasyEl("ol", "question-container-choices");
-    for (var x = 0; x < 4; x ++) {
-      var answerEl = this.createEasyEl("li", "choice");
-      var current = "choice" + (x + 1);
-      if(obj[current] != ""){
-        answerEl.innerHTML = this.cleanHTMLString(obj[current]);
-        choices.appendChild(answerEl);
-      }
-    }
-    choices.addEventListener("click", this.listenForUserChoice, false);
-    document.querySelector("#question-container").appendChild(choices);
-  },
-  
-  startNewQuestion: function() {
-    if(app.questions.length > 0){
-      app.currentQuestion = app.questions[0];
-      app.createQuestion(app.currentQuestion);
-    } else {
-      var el = this.createEasyEl("p", "question-container-question");
-      el.innerHTML = "You finished!<br>Your final score is " + app.score + "!";
-      document.querySelector("#question-container").innerHTML = "";
-      document.querySelector("#question-container").appendChild(el);
-      document.querySelector("#main-btn").addEventListener("click", app.start, false);
-      document.querySelector("#main-btn").innerHTML = "Restart";
-    }
-    
-  },
-  
-  start: function(){
-   // app.questions = app.savedQuestions.slice();
-    document.querySelector("#main-btn").removeEventListener("click", app.start, false);
-    app.questions = app.shuffleArray(app.questions);
-    document.querySelector("#main-btn").addEventListener("click", app.testUserSubmit, false);
-    app.startNewQuestion();
+var questions = [{
+  multipleAnswers: false,
+  question: "What tag is used to create a paragraph?",
+  choice1: "<p>",
+  choice2: "<par>",
+  choice3: "<t>",
+  choice4: "<text>",
+  answer: "<p>",
+  answerExplained: "The <p> tag is used to create a paragraph. An opening <p> tag starts a paragraph and the closing </p> tag ends a paragraph."
+  }, {
+  multipleAnswers: false,
+  question: "Paragraph tags are what type of element?",
+  choice1: "Inline",
+  choice2: "Box",
+  choice3: "Block",
+  choice4: "None of the above",
+  answer: "Block",
+  answerExplained: "Paragraphs by default are block level elements."
+  }, {
+  multipleAnswers: false,
+  question: "There are 6 levels of headings",
+  choice1: "True",
+  choice2: "False",
+  choice3: "",
+  choice4: "",
+  answer: "True",
+  answerExplained: "There are 6 levels of headings h1 -h6."
+  }];
+
+var savedQuestions = questions.slice();
+
+var shuffleArray = function (array) {
+  var currentIndex = array.length,
+    temporaryValue, randomIndex;
+  while (0 !== currentIndex) {
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
   }
-}; // ends app
+  return array;
+};
 
-document.querySelector("#main-btn").addEventListener("click", app.start, false);
+var cleanHTMLString = function (str) {
+  str = str.split("");
+  for (var x = 0; x < str.length; x++) {
+    if (str[x] == "<") {
+      str[x] = "&lt;"
+    } else if (str[x] == ">") {
+      str[x] = "&gt;"
+    }
+  }
+  str = str.join("");
+  return str;
+};
+
+
+var createEasyEl = function (elType, clsNames) {
+  var ee = document.createElement(elType);
+  if (Array.isArray(clsNames)) {
+    for (var x = 0; x < clsNames.length; x++) {
+      ee.classList.add(clsNames[x]);
+    }
+  } else if (typeof clsNames == "string") {
+    ee.classList.add(clsNames);
+  }
+  return ee;
+};
+
+var listenForUserChoice = function (e) {
+  if (playing) {
+    if (e.target.classList.contains("chosen")) {
+      e.target.classList.remove("chosen")
+    } else if (e.target.classList.contains("choice")) {
+      if (!currentQuestion.multipleAnswers) {
+        var choiceEls = document.querySelectorAll(".choice");
+        for (var x = 0; x < choiceEls.length; x++) {
+          if (choiceEls[x].classList.contains("chosen")) {
+            choiceEls[x].classList.remove("chosen");
+          }
+        }
+        e.target.classList.add("chosen");
+      }
+    }
+  } else {
+    if (!document.querySelector("#main-btn").classList.contains("wiggle")) {
+      document.querySelector("#main-btn").classList.add("wiggle");
+      setTimeout(function () {
+        document.querySelector("#main-btn").classList.remove("wiggle");
+      }, 500);
+    }
+  }
+};
+
+var testUserSubmit = function () {
+  if (playing && document.body.contains(document.querySelector(".chosen"))) {
+    playing = false;
+
+    if (!currentQuestion.multipleAnswers) {
+      var choice = "";
+      choice = document.querySelector(".chosen").innerHTML;
+      if (choice == cleanHTMLString(currentQuestion.answer)) {
+        document.querySelector(".question-feedback").innerHTML = "Correct! <br>";
+        document.querySelector(".question-feedback").classList.add("question-right");
+        score++;
+      } else {
+        questions.push(currentQuestion);
+        document.querySelector(".question-feedback").innerHTML = "Sorry, incorrect <br>";
+        document.querySelector(".question-feedback").classList.add("question-wrong");
+        score--;
+      }
+      document.querySelector("#score-holder").innerHTML = score;
+
+      document.querySelector(".question-feedback").innerHTML += cleanHTMLString(currentQuestion.answerExplained);
+
+      document.querySelector("#main-btn").innerHTML = "Next Question";
+    }
+  } else if (playing && !(document.body.contains(document.querySelector(".chosen")))) {
+    if (!document.querySelector(".question-container-choices").classList.contains("wiggle")) {
+      document.querySelector(".question-container-choices").classList.add("wiggle");
+      setTimeout(function () {
+        document.querySelector(".question-container-choices").classList.remove("wiggle");
+      }, 500);
+    }
+  } else if (!playing) {
+    questions.shift();
+    startNewQuestion();
+  }
+};
+
+var createQuestion = function (obj) {
+  var question,
+    feedback,
+    choices;
+  playing = true;
+  
+  document.querySelector("#main-btn").innerHTML = "Submit Answer";
+  document.querySelector("#question-container").innerHTML = "";
+  question = createEasyEl("p", "question-container-question");
+  question.innerHTML = cleanHTMLString(obj.question);
+  document.querySelector("#question-container").appendChild(question);
+
+  feedback = createEasyEl("div", "question-feedback");
+  document.querySelector("#question-container").appendChild(feedback);
+
+  choices = createEasyEl("ol", "question-container-choices");
+  for (var x = 0; x < 4; x++) {
+    var answerEl = createEasyEl("li", "choice");
+    var current = "choice" + (x + 1);
+    if (obj[current] != "") {
+      answerEl.innerHTML = cleanHTMLString(obj[current]);
+      choices.appendChild(answerEl);
+    }
+  }
+  choices.addEventListener("click", this.listenForUserChoice, false);
+  document.querySelector("#question-container").appendChild(choices);
+};
+
+var startNewQuestion = function () {
+  if (questions.length > 0) {
+    currentQuestion = questions[0];
+    createQuestion(currentQuestion);
+  } else {
+    var el = this.createEasyEl("p", "question-container-question");
+    el.innerHTML = "You finished!<br>Your final score is " + score + "!";
+    document.querySelector("#question-container").innerHTML = "";
+    document.querySelector("#question-container").appendChild(el);
+    document.querySelector("#main-btn").addEventListener("click", start, false);
+    document.querySelector("#main-btn").innerHTML = "Restart";
+  }
+
+};
+
+var start = function () {
+  score = 0;
+  document.querySelector("#score-holder").innerHTML = score;
+  questions = savedQuestions.slice();
+  document.querySelector("#main-btn").removeEventListener("click", start, false);
+  questions = shuffleArray(questions);
+  document.querySelector("#main-btn").addEventListener("click", testUserSubmit, false);
+  startNewQuestion();
+};
+
+
+document.querySelector("#main-btn").addEventListener("click", start, false);
 
 // app.start();
 

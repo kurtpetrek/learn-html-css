@@ -4,32 +4,95 @@ var score = 0,
   appStarted = false;
 
 var questions = [{
-  multipleAnswers: false,
-  question: "What tag is used to create a paragraph?",
-  choice1: "<p>",
-  choice2: "<par>",
-  choice3: "<t>",
-  choice4: "<text>",
-  answer: "<p>",
-  answerExplained: "The <p> tag is used to create a paragraph. An opening <p> tag starts a paragraph and the closing </p> tag ends a paragraph."
+    multipleAnswers: false,
+    question: "What tag is used to create a paragraph?",
+    choice1: "<p>",
+    choice2: "<par>",
+    choice3: "<t>",
+    choice4: "<text>",
+    answer: "<p>",
+    answerExplained: "The <p> tag is used to create a paragraph. An opening <p> tag starts a paragraph and the closing </p> tag ends a paragraph."
   }, {
-  multipleAnswers: false,
-  question: "Paragraph tags are what type of element?",
-  choice1: "Inline",
-  choice2: "Box",
-  choice3: "Block",
-  choice4: "None of the above",
-  answer: "Block",
-  answerExplained: "Paragraphs by default are block level elements."
+    multipleAnswers: false,
+    question: "Paragraph tags are what type of element?",
+    choice1: "Inline",
+    choice2: "Box",
+    choice3: "Block",
+    choice4: "None of the above",
+    answer: "Block",
+    answerExplained: "Paragraphs by default are block level elements."
   }, {
-  multipleAnswers: false,
-  question: "There are 6 levels of headings",
-  choice1: "True",
-  choice2: "False",
-  choice3: "",
-  choice4: "",
-  answer: "True",
-  answerExplained: "There are 6 levels of headings h1 -h6."
+    multipleAnswers: false,
+    question: "There are 6 levels of headings",
+    choice1: "True",
+    choice2: "False",
+    choice3: "",
+    choice4: "",
+    answer: "True",
+    answerExplained: "There are 6 levels of headings h1 -h6."
+  },{
+    multipleAnswers: false,
+    question: "What tag is used to create a link to another web page?",
+    choice1: "<link>",
+    choice2: "<href>",
+    choice3: "<lk>",
+    choice4: "<a>",
+    answer: "<a>",
+    answerExplained: "<a> tags are used to link web pages together, they require a href attribute."
+  },{
+    multipleAnswers: false,
+    question: "What tag is used to create a first level heading?",
+    choice1: "<h>",
+    choice2: "<head>",
+    choice3: "<h1>",
+    choice4: "<h-1>",
+    answer: "<h1>",
+    answerExplained: "<a> tags are used to link web pages together, they require a href attribute."
+  },{
+    multipleAnswers: false,
+    question: "What is the default alignment for elements?",
+    choice1: "left",
+    choice2: "center",
+    choice3: "right",
+    choice4: "",
+    answer: "left",
+    answerExplained: "By default elements and text are aligned to the left."
+  },{
+    multipleAnswers: false,
+    question: "Select the proper HTML syntax.",
+    choice1: '<p class="drop-cap">Hello World</p>',
+    choice2: '<p class:drop-cap>Hello World</p>',
+    choice3: '<p class="drop-cap" Hello World /p>',
+    choice4: '<p class="drop-cap">Hello World</p class="drop-cap">',
+    answer: '<p class="drop-cap">Hello World</p>',
+    answerExplained: "By default elements and text are aligned to the left."
+  },{
+    multipleAnswers: false,
+    question: "What type of list will number list items for you?",
+    choice1: 'Numbered',
+    choice2: 'Unordered',
+    choice3: 'Listed',
+    choice4: 'Ordered',
+    answer: 'Ordered',
+    answerExplained: "Ordered lists and the <ol> tag are used to define a list with numbers."
+  },{
+    multipleAnswers: false,
+    question: "CSS documents should be linked in the <head> section of a website.",
+    choice1: 'True',
+    choice2: 'False',
+    choice3: '',
+    choice4: '',
+    answer: 'True',
+    answerExplained: "CSS documents should be linked to an html page in the <head> section of the page."
+  },{
+    multipleAnswers: false,
+    question: "Inline styles are written...",
+    choice1: 'On a separate css document.',
+    choice2: 'In the head section of the html document within <style> tags.',
+    choice3: 'In the styled elements opening tag using the style attribute.',
+    choice4: '',
+    answer: 'In the styled elements opening tag using the style attribute.',
+    answerExplained: 'Inline styles are written within the elements html, <p style="color: red;">Hello World</p>'
   }];
 
 var savedQuestions = questions.slice();

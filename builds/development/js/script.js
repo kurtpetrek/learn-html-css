@@ -2,6 +2,7 @@ var app = {
   currentQuestion: {},
   score: 0,
   playing: true,
+  appStarted: false,
   questions: [{
     multipleAnswers: false,
     question: "What tag is used to create a paragraph?",
@@ -85,6 +86,13 @@ var app = {
           e.target.classList.add("chosen");
         }
       }
+    } else {
+      if(!document.querySelector("#main-btn").classList.contains("wiggle")){
+        document.querySelector("#main-btn").classList.add("wiggle");
+        setTimeout(function(){
+          document.querySelector("#main-btn").classList.remove("wiggle");
+        }, 500);
+      } 
     }
   },
   
@@ -111,6 +119,13 @@ var app = {
         
         document.querySelector("#main-btn").innerHTML = "Next Question";
       }
+    } else if(app.playing && !(document.body.contains(document.querySelector(".chosen")))){
+      if(!document.querySelector(".question-container-choices").classList.contains("wiggle")){
+        document.querySelector(".question-container-choices").classList.add("wiggle");
+        setTimeout(function(){
+          document.querySelector(".question-container-choices").classList.remove("wiggle");
+        }, 500);
+      } 
     } else if(!app.playing) {
       app.questions.shift();
       app.startNewQuestion();
@@ -150,13 +165,16 @@ var app = {
   },
   
   start: function(){
+    document.querySelector("#main-btn").removeEventListener("click", app.start, false);
     app.questions = app.shuffleArray(app.questions);
     document.querySelector("#main-btn").addEventListener("click", app.testUserSubmit, false);
-    this.startNewQuestion();
+    app.startNewQuestion();
   }
 }; // ends app
 
-app.start();
+document.querySelector("#main-btn").addEventListener("click", app.start, false);
+
+// app.start();
 
 /* part2.js      (update name changes in gulpfile)
 ==================================== */

@@ -29,7 +29,7 @@ var questions = [{
     choice3: "",
     choice4: "",
     answer: "True",
-    answerExplained: "There are 6 levels of headings h1 -h6."
+    answerExplained: "There are 6 levels of headings h1 - h6."
   },{
     multipleAnswers: false,
     question: "What tag is used to create a link to another web page?",
@@ -110,16 +110,16 @@ var questions = [{
     choice3: '',
     choice4: '',
     answer: 'False',
-    answerExplained: 'Classes can be used throughout a html document for styling different elements the same way.'
+    answerExplained: 'Classes can be used throughout an html document for styling different elements the same way.'
   },{
     multipleAnswers: false,
-    question: "What css would be used to set the background color of the body of a web page to #CBCBCB",
+    question: "What CSS would be used to set the background color of the body of a web page to #CBCBCB",
     choice1: 'document {background-color: #CBCBCB;}',
     choice2: 'head {background-color: #CBCBCB;}',
     choice3: 'body {background-color: #CBCBCB;}',
     choice4: 'elements {background-color: #CBCBCB;}',
     answer: 'body {background-color: #CBCBCB;}',
-    answerExplained: 'In order to change the background of the body you would first select the body element and then set the background-color or background css properties, body { background-color: #CBCBCB; }'
+    answerExplained: 'In order to change the background of the body you would first select the body element and then set the background-color or background CSS properties, body { background-color: #CBCBCB; }'
   },{
     multipleAnswers: false,
     question: "Which is the proper pseudo class CSS syntax for a hover on an <a> tag?",
@@ -131,7 +131,7 @@ var questions = [{
     answerExplained: 'The hover class is used in this way a:hover { color: #7348FB; }'
   },{
     multipleAnswers: false,
-    question: "Which of the following is not a valid value for the css float property?",
+    question: "Which of the following is not a valid value for the CSS float property?",
     choice1: 'left',
     choice2: 'center',
     choice3: 'right',
@@ -149,13 +149,76 @@ var questions = [{
     answerExplained: 'Padding is the space between an elements content and border.'
   },{
     multipleAnswers: false,
-    question: "The css selector chain used to target a tags within a nav element is",
+    question: "The CSS selector chain used to target <a> tags within a <nav> element is",
     choice1: 'a nav',
     choice2: '.nav a',
     choice3: 'nav a',
     choice4: 'nav + a',
     answer: 'nav a',
     answerExplained: '"nav a" would select all a tags within a nav element.'
+  },{
+    multipleAnswers: false,
+    question: "The space outside of an element's border separating it from other elements is...",
+    choice1: 'margin',
+    choice2: 'border',
+    choice3: 'content',
+    choice4: 'padding',
+    answer: 'margin',
+    answerExplained: '"The space outside of an element is margin.'
+  },{
+    multipleAnswers: false,
+    question: "To select an element with the class of container in CSS you would use...",
+    choice1: '#container',
+    choice2: '$container',
+    choice3: '.container:div',
+    choice4: '.container',
+    answer: '.container',
+    answerExplained: '"In CSS classes are selected with a starting with a period followed by the class name, .container would select the container class.'
+  },{
+    multipleAnswers: false,
+    question: "Links to css documents should be placed in the <footer> of an html document.",
+    choice1: 'True',
+    choice2: 'False',
+    choice3: '',
+    choice4: '',
+    answer: 'False',
+    answerExplained: 'Html documents should link to external css documents in the <head> section.'
+  },{
+    multipleAnswers: false,
+    question: "To remove the default underline on links use this CSS...",
+    choice1: 'link { text-decoration: none; }',
+    choice2: 'a { text-style: none; }',
+    choice3: 'a.href { text-style: none; }',
+    choice4: 'a { text-decoration: none; }',
+    answer: 'a { text-decoration: none; }',
+    answerExplained: 'The default underline can be removed by targeting a tags and changin the text-decoration property to none, a { text-decoration: none; }'
+  },{
+    multipleAnswers: false,
+    question: "An element has three css declarations. width: 100px; padding: 10px; border: 5px solid #000; What is the width of this element on the web page?",
+    choice1: '100px',
+    choice2: '115px',
+    choice3: '130px',
+    choice4: '110px',
+    answer: '130px',
+    answerExplained: 'The elements total width would be 130px. By default padding and border size are not factored in an elements defined width. Width 100 + 10px padding left + 10px padding right + 5px border left + 5px border right'
+  },{
+    multipleAnswers: false,
+    question: "What css declaration makes an element factor padding and border size values in defined widths?",
+    choice1: 'box-model: fix;',
+    choice2: 'box-content: full;',
+    choice3: 'border-box: box-full;',
+    choice4: 'box-sizing: border-box;',
+    answer: 'box-sizing: border-box;',
+    answerExplained: 'box-sizing: border-box; can be given to an element so that padding and border size are factored in a defined width.'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following is an fixed unit of measurement?",
+    choice1: 'px',
+    choice2: 'em',
+    choice3: '%',
+    choice4: 'vh',
+    answer: 'px',
+    answerExplained: 'px stands for pixels and is a fixed unit of measurment, em'
   }];
 
 var savedQuestions = questions.slice();

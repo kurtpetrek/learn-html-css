@@ -194,13 +194,13 @@ var questions = [{
     answerExplained: 'The default underline can be removed by targeting a tags and changin the text-decoration property to none, a { text-decoration: none; }'
   },{
     multipleAnswers: false,
-    question: "An element has three css declarations. width: 100px; padding: 10px; border: 5px solid #000; What is the width of this element on the web page?",
+    question: "An element has three css declarations. width: 100px; padding: 10px; border: 5px solid #000; What is the visible width of this element on the web page?",
     choice1: '100px',
     choice2: '115px',
     choice3: '130px',
     choice4: '110px',
     answer: '130px',
-    answerExplained: 'The elements total width would be 130px. By default padding and border size are not factored in an elements defined width. Width 100 + 10px padding left + 10px padding right + 5px border left + 5px border right'
+    answerExplained: 'The elements total visible width would be 130px. By default padding and border size are not factored in an elements defined width. Width 100px + 10px padding left + 10px padding right + 5px border left + 5px border right = 130px'
   },{
     multipleAnswers: false,
     question: "What css declaration makes an element factor padding and border size values in defined widths?",
@@ -218,7 +218,25 @@ var questions = [{
     choice3: '%',
     choice4: 'vh',
     answer: 'px',
-    answerExplained: 'px stands for pixels and is a fixed unit of measurment, em'
+    answerExplained: 'px stands for pixels and is a fixed unit of measurement.'
+  },{
+    multipleAnswers: false,
+    question: "When giving an element width: 100%; it will...",
+    choice1: 'fill the width of the web page.',
+    choice2: 'fill the width of its parent containers content',
+    choice3: 'be exactly 100 pixels wide.',
+    choice4: 'not have a width, % is not a valid css unit of measurement.',
+    answer: 'fill the width of its parent containers content',
+    answerExplained: 'When giving an element width: 100%; it will fill the width of its parent containers content'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following is not a valid hex color?",
+    choice1: '#303030',
+    choice2: '#7AE',
+    choice3: '#FEFEFE',
+    choice4: '#GG17',
+    answer: '#GG17',
+    answerExplained: '#GG17 is not a valid hex color value, hex digits range from 0 to F and are given in sets of three or six.'
   }];
 
 var savedQuestions = questions.slice();

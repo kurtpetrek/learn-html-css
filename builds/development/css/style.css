@@ -147,7 +147,8 @@ h2 {
   position: absolute;
   right: 1rem;
   top: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   width: 1rem;
   height: 1rem;
   border: 5px solid #CDD7D6;
@@ -172,7 +173,8 @@ h2 {
   border: 0px solid #102542;
   border-right: 5px solid #102542;
   border-bottom: 5px solid #102542;
-  transform: translate(-50%, -50%) rotate(45deg);
+  -webkit-transform: translate(-50%, -50%) rotate(45deg);
+          transform: translate(-50%, -50%) rotate(45deg);
   width: .5rem;
   height: 1.3rem;
 }
@@ -246,20 +248,44 @@ h2 {
 
 /* line 173, ../components/sass/_base.scss */
 .wiggle {
-  animation: wiggle .5s;
+  -webkit-animation: wiggle .5s;
+          animation: wiggle .5s;
+}
+
+@-webkit-keyframes wiggle {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  25% {
+    -webkit-transform: rotate(-3.5deg);
+            transform: rotate(-3.5deg);
+  }
+  75% {
+    -webkit-transform: rotate(3.5deg);
+            transform: rotate(3.5deg);
+  }
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
 }
 
 @keyframes wiggle {
   0% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   25% {
-    transform: rotate(-3.5deg);
+    -webkit-transform: rotate(-3.5deg);
+            transform: rotate(-3.5deg);
   }
   75% {
-    transform: rotate(3.5deg);
+    -webkit-transform: rotate(3.5deg);
+            transform: rotate(3.5deg);
   }
   100% {
-    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
   }
 }

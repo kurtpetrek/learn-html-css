@@ -6,9 +6,10 @@ var gulp = require('gulp'),
     connect = require('gulp-connect'),
     gulpif = require('gulp-if'),
     uglify = require('gulp-uglify'),
-//    minifyCSS = require('gulp-minify-css'),
+    minifyCSS = require('gulp-minify-css'),
     minifyHTML = require('gulp-minify-html'),
     jsonMinify = require('gulp-jsonminify'),
+    autoprefixer = require('gulp-autoprefixer'),
     concat = require('gulp-concat');
 
 var env,
@@ -49,7 +50,7 @@ gulp.task('coffee', function() {
 gulp.task('js', function() {
   gulp.src(jsSources)
     .pipe(concat('script.js'))
-   // .pipe(browserify())
+    .pipe(browserify())
     .pipe(gulpif(env === 'production', uglify()))
     .pipe(gulp.dest(outputDir + 'js'))
     .pipe(connect.reload())
@@ -64,7 +65,8 @@ gulp.task('compass', function() {
       comments: true
     })
     .on('error', gutil.log))
-//    .pipe(gulpif(env === 'production', minifyCSS()))
+    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'ff 17', 'opera 12.1', 'ios 6', 'android 4'))
+    .pipe(gulpif(env === 'production', minifyCSS()))
     .pipe(gulp.dest(outputDir + 'css'))
     .pipe(connect.reload())
 });

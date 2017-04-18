@@ -39,6 +39,7 @@ h2 {
   margin: 1em auto 2em;
   line-height: 1.5em;
   box-shadow: 5px 5px rgba(0,0,0,0.5);
+  word-wrap: break-word;
   
   &:first-letter {
     float: left;
@@ -62,6 +63,15 @@ h2 {
   box-shadow: 5px 5px rgba(0,0,0,0.5);
 }
 
+@media (max-width: 500px) {
+  .question-container-choices {
+    width: 90%;
+  }
+  .question-container-question {
+    width: 100%;
+  }
+}
+
 .choice {
   background: $clr-1;
   color: $clr-3;
@@ -72,6 +82,7 @@ h2 {
   position: relative;
   transition: .5s;
   box-shadow: inset 3px 3px rgba(0,0,0,0.5);
+  word-wrap: break-word;
   
   &::after {
     content: "";

@@ -173,7 +173,7 @@ var questions = [{
     choice3: '.container:div',
     choice4: '.container',
     answer: '.container',
-    answerExplained: '"In CSS classes are selected with a starting with a period followed by the class name, .container would select the container class.'
+    answerExplained: 'In CSS classes are selected with a starting with a period followed by the class name, .container would select the container class.'
   },{
     multipleAnswers: false,
     question: "Links to css documents should be placed in the <footer> of an html document.",
@@ -312,6 +312,7 @@ var testUserSubmit = function () {
     if (!currentQuestion.multipleAnswers) {
       var choice = "";
       choice = document.querySelector(".chosen").innerHTML;
+      
       if (choice == cleanHTMLString(currentQuestion.answer)) {
         document.querySelector(".question-feedback").innerHTML = "Correct! <br>";
         document.querySelector(".question-feedback").classList.add("question-right");
@@ -322,6 +323,7 @@ var testUserSubmit = function () {
         document.querySelector(".question-feedback").classList.add("question-wrong");
         score--;
       }
+      document.querySelector('#feedback').scrollIntoView();
       document.querySelector("#score-holder").innerHTML = score;
 
       document.querySelector(".question-feedback").innerHTML += cleanHTMLString(currentQuestion.answerExplained);
@@ -346,6 +348,7 @@ var createQuestion = function (obj) {
     feedback,
     choices;
   playing = true;
+  document.querySelector('#score-holder').scrollIntoView();
   
   document.querySelector("#main-btn").innerHTML = "Submit Answer";
   document.querySelector("#question-container").innerHTML = "";
@@ -354,6 +357,7 @@ var createQuestion = function (obj) {
   document.querySelector("#question-container").appendChild(question);
 
   feedback = createEasyEl("div", "question-feedback");
+  feedback.id = "feedback";
   document.querySelector("#question-container").appendChild(feedback);
 
   choices = createEasyEl("ol", "question-container-choices");

@@ -83,7 +83,7 @@ var questions = [{
     choice3: '',
     choice4: '',
     answer: 'True',
-    answerExplained: "CSS documents should be linked to an html page in the <head> section of the page."
+    answerExplained: "CSS documents should be linked to an HTML document in the <head> section."
   },{
     multipleAnswers: false,
     question: "Inline styles are written...",
@@ -101,7 +101,7 @@ var questions = [{
     choice3: '',
     choice4: '',
     answer: 'True',
-    answerExplained: 'An ID is a unique identifier that should only be used once per page.  A single html page can have multiple IDs but each ID should only be used once per page.'
+    answerExplained: 'An ID is a unique identifier that should only be used once per page.  A single HTML document can have multiple IDs but each ID should only be used once per page.'
   },{
     multipleAnswers: false,
     question: "Classes should be used only once per page.",
@@ -309,6 +309,60 @@ var questions = [{
     choice4: 'Black',
     answer: 'Red',
     answerExplained: 'In CSS class selectors are more specific than element selectors so the heading text would display as red.'
+  },{
+    multipleAnswers: false,
+    question: "A CSS declaration should always end in a...",
+    choice1: ';',
+    choice2: '>',
+    choice3: ')',
+    choice4: ']',
+    answer: ';',
+    answerExplained: 'CSS declarations always end in a ; known as a semicolon. Example, font-size: 24px;  Though the semicolon is not necessary if only giving one CSS declaration to a selector it’s a good habit to always put it in anyway.'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following CSS declarations will make the background image of an element expand to fill the element?",
+    choice1: 'background-expand: full;',
+    choice2: 'background-size: cover;',
+    choice3: 'background-expand: cover;',
+    choice4: 'size-background: full;',
+    answer: 'background-size: cover;',
+    answerExplained: 'The CSS declaration to make a background image expand to fill the element is background-size: cover;'
+  },{
+    multipleAnswers: false,
+    question: "What is the default positioning of an element?",
+    choice1: 'static',
+    choice2: 'relative',
+    choice3: 'absolute',
+    choice4: 'fixed',
+    answer: 'static',
+    answerExplained: 'The default positioning for elements is static where the elements will render in the order that they appear in the HTML document.'
+  },{
+    multipleAnswers: false,
+    question: "What is the generic HTML block-level container element that is used to divide various parts of a web page for styling and layout?",
+    choice1: '<box>',
+    choice2: '<divide>',
+    choice3: '<div>',
+    choice4: '<container>',
+    answer: '<div>',
+    answerExplained: '<div> is the traditional generic block-level container element in HTML, it is short for division and is used to group various other HTML elements together for styling and layout.  It needs an opening tag <div> and a closing tag </div>'
+  },{
+    multipleAnswers: false,
+    question: "By default an image element will be what size?",
+    choice1: '100px',
+    choice2: 'It will fill the width of its parent container by default.',
+    choice3: 'It will display at the size and dimensions of the image file.',
+    choice4: 'It will not display unless you give it a width.',
+    answer: 'It will display at the size and dimensions of the image file.',
+    answerExplained: 'By default images will display at the size and dimensions of the image file itself, this can be changed by using CSS.'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following CSS declarations will set the font-face of an element to Helvetica with a fall back of the default sans-serif font if Helvetica is not available?",
+    choice1: 'font-family: sans-serif, Helvetica;',
+    choice2: 'font-face: Helvetica, sans-serif;',
+    choice3: 'make-font: sans-serif, Helvetica;',
+    choice4: 'font-family: Helvetica, sans-serif;',
+    answer: 'font-family: Helvetica, sans-serif;',
+    answerExplained: 'You can set the font of an element by setting the font-family property to a value or values like this font-family: Helvetica, sans-serif; In this example Helvetica will try to load first, if Helvetica is not available the computers default sans-serif font will be used.'
   }];
 
 var savedQuestions = questions.slice();

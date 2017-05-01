@@ -173,7 +173,7 @@ var questions = [{
     choice3: '.container:div',
     choice4: '.container',
     answer: '.container',
-    answerExplained: 'In CSS classes are selected with a starting with a period followed by the class name, .container would select the container class.'
+    answerExplained: 'In CSS classes are selected by starting with a period followed by the class name, .container would select the container class.'
   },{
     multipleAnswers: false,
     question: "Links to css documents should be placed in the <footer> of an html document.",
@@ -321,7 +321,9 @@ var testUserSubmit = function () {
         questions.push(currentQuestion);
         document.querySelector(".question-feedback").innerHTML = "Sorry, incorrect <br>";
         document.querySelector(".question-feedback").classList.add("question-wrong");
-        score--;
+        if(score > 0){
+          score--;
+        }
       }
       document.querySelector('#feedback').scrollIntoView();
       document.querySelector("#score-holder").innerHTML = score;

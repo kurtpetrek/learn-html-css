@@ -38,7 +38,7 @@ var questions = [{
     choice3: "<lk>",
     choice4: "<a>",
     answer: "<a>",
-    answerExplained: "<a> tags are used to link web pages together, they require a href attribute."
+    answerExplained: "<a> tags are used to link web pages together, they require an href attribute."
   },{
     multipleAnswers: false,
     question: "What tag is used to create a first level heading?",
@@ -146,7 +146,7 @@ var questions = [{
     choice3: 'margin',
     choice4: 'padding',
     answer: 'padding',
-    answerExplained: 'Padding is the space between an elements content and border.'
+    answerExplained: "Padding is the space between an element's content and border."
   },{
     multipleAnswers: false,
     question: "The CSS selector chain used to target <a> tags within a <nav> element is",
@@ -191,7 +191,7 @@ var questions = [{
     choice3: 'a.href { text-style: none; }',
     choice4: 'a { text-decoration: none; }',
     answer: 'a { text-decoration: none; }',
-    answerExplained: 'The default underline can be removed by targeting a tags and changin the text-decoration property to none, a { text-decoration: none; }'
+    answerExplained: 'The default underline can be removed by targeting a tags and changing the text-decoration property to none, a { text-decoration: none; }'
   },{
     multipleAnswers: false,
     question: "An element has three css declarations. width: 100px; padding: 10px; border: 5px solid #000; What is the visible width of this element on the web page?",
@@ -245,7 +245,7 @@ var questions = [{
     choice3: 'Properties and equations',
     choice4: 'Objects and forces',
     answer: 'Selectors and declarations',
-    answerExplained: 'A CSS rule consists of a selector and declarations such as p { color: #333; } where p is the selector and color: #333 is the declaration.'
+    answerExplained: 'A CSS rule consists of a selector and declarations such as p { color: #333; } where p is the selector and color: #333; is the declaration.'
   },{
     multipleAnswers: false,
     question: "What are the two components of CSS declarations?",

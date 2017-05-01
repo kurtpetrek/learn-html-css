@@ -69,7 +69,7 @@ var questions = [{
   },{
     multipleAnswers: false,
     question: "What type of list will number list items for you?",
-    choice1: 'Numbered',
+    choice1: 'Bulleted',
     choice2: 'Unordered',
     choice3: 'Listed',
     choice4: 'Ordered',
@@ -95,13 +95,13 @@ var questions = [{
     answerExplained: 'Inline styles are written within the elements html, <p style="color: red;">Hello World</p>'
   },{
     multipleAnswers: false,
-    question: "IDs should be used only once per page.",
+    question: "An ID should be used only once per page.",
     choice1: 'True',
     choice2: 'False',
     choice3: '',
     choice4: '',
     answer: 'True',
-    answerExplained: 'IDs are unique identifiers that should only be used once per page.'
+    answerExplained: 'An ID is a unique identifier that should only be used once per page.  A single html page can have multiple IDs but each ID should only be used once per page.'
   },{
     multipleAnswers: false,
     question: "Classes should be used only once per page.",
@@ -164,7 +164,7 @@ var questions = [{
     choice3: 'content',
     choice4: 'padding',
     answer: 'margin',
-    answerExplained: '"The space outside of an element is margin.'
+    answerExplained: 'The space outside of an element is margin.'
   },{
     multipleAnswers: false,
     question: "To select an element with the class of container in CSS you would use...",
@@ -212,7 +212,7 @@ var questions = [{
     answerExplained: 'box-sizing: border-box; can be given to an element so that padding and border size are factored in a defined width.'
   },{
     multipleAnswers: false,
-    question: "Which of the following is an fixed unit of measurement?",
+    question: "Which of the following is a fixed unit of measurement?",
     choice1: 'px',
     choice2: 'em',
     choice3: '%',

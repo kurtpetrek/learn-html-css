@@ -65,7 +65,7 @@ var questions = [{
     choice3: '<p class="drop-cap" Hello World /p>',
     choice4: '<p class="drop-cap">Hello World</p class="drop-cap">',
     answer: '<p class="drop-cap">Hello World</p>',
-    answerExplained: "By default elements and text are aligned to the left."
+    answerExplained: 'This is proper HTML syntax, <p class="drop-cap">Hello World</p> It consists of a < followed by the tag name with an attribute = to a value in “” a > the content of the element then a </ tag name > for the closing tag.'
   },{
     multipleAnswers: false,
     question: "What type of list will number list items for you?",
@@ -203,7 +203,7 @@ var questions = [{
     answerExplained: 'The elements total visible width would be 130px. By default padding and border size are not factored in an elements defined width. Width 100px + 10px padding left + 10px padding right + 5px border left + 5px border right = 130px'
   },{
     multipleAnswers: false,
-    question: "What css declaration makes an element factor padding and border size values in defined widths?",
+    question: "What css declaration makes an element factor padding and border size values in defined width and/or height?",
     choice1: 'box-model: fix;',
     choice2: 'box-content: full;',
     choice3: 'border-box: box-full;',
@@ -237,6 +237,78 @@ var questions = [{
     choice4: '#GG17',
     answer: '#GG17',
     answerExplained: '#GG17 is not a valid hex color value, hex digits range from 0 to F and are given in sets of three or six.'
+  },{
+    multipleAnswers: false,
+    question: "What are the two components of CSS rules?",
+    choice1: 'Attributes and values',
+    choice2: 'Selectors and declarations',
+    choice3: 'Properties and equations',
+    choice4: 'Objects and forces',
+    answer: 'Selectors and declarations',
+    answerExplained: 'A CSS rule consists of a selector and declarations such as p { color: #333; } where p is the selector and color: #333 is the declaration.'
+  },{
+    multipleAnswers: false,
+    question: "What are the two components of CSS declarations?",
+    choice1: 'Property and value',
+    choice2: 'Selector and declaration',
+    choice3: 'Subject and object',
+    choice4: 'None of the above',
+    answer: 'Property and value',
+    answerExplained: 'A CSS declaration consists of a property and value. Example, text-align: center; where text-align is the property and center is the value.'
+  },{
+    multipleAnswers: false,
+    question: "In CSS what declaration can horizontally center a block level element?",
+    choice1: 'text-align: center;',
+    choice2: 'margin: auto;',
+    choice3: 'align: middle;',
+    choice4: 'please: center;',
+    answer: 'margin: auto;',
+    answerExplained: 'Block level elements can be horizontally centered using margin: auto; this would put automatic margin on the left and right sides of the element horizontally centering it within its parent.'
+  },{
+    multipleAnswers: false,
+    question: "What CSS declaration can be given to an element to center any inline content nested within it?",
+    choice1: 'text-align: center;',
+    choice2: 'margin: auto;',
+    choice3: 'align: middle;',
+    choice4: 'content: middle;',
+    answer: 'text-align: center;',
+    answerExplained: 'By giving an element text-align: center; any nested inline content, such as text, images and links, will be aligned in the center.'
+  },{
+    multipleAnswers: false,
+    question: "What CSS declaration would change the color of text within an element to purple?",
+    choice1: 'text-color: purple;',
+    choice2: 'font-color: purple;',
+    choice3: 'color: purple;',
+    choice4: 'color-text: purple;',
+    answer: 'color: purple;',
+    answerExplained: 'To change the color of the text within an element you would use the css declaration color: purple;'
+  },{
+    multipleAnswers: false,
+    question: "What type of elements start a new line before and after the element and span the width of their parent container by default?",
+    choice1: 'inline',
+    choice2: 'box',
+    choice3: 'span',
+    choice4: 'block',
+    answer: 'block',
+    answerExplained: 'Block-level elements will by default start a new line before and after the element and span the width of their parent container.'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following would be a valid css selector?",
+    choice1: '.icon',
+    choice2: '#main-header',
+    choice3: 'h1',
+    choice4: 'All of the above',
+    answer: 'All of the above',
+    answerExplained: 'All of these could be used as a css selector, .icon would target elements with the class of icon, #main-header would target an element with the id of main-header and h1 would target all h1 tags.'
+  },{
+    multipleAnswers: false,
+    question: "A CSS document has the following two CSS rules, h1 { color: green; } .main-header { color: red; } .  A linked HTML document has an h1 with the class of main-header, what color will its text be?",
+    choice1: 'Red',
+    choice2: 'Green',
+    choice3: 'Yellow',
+    choice4: 'Black',
+    answer: 'Red',
+    answerExplained: 'In CSS class selectors are more specific than element selectors so the heading text would display as red.'
   }];
 
 var savedQuestions = questions.slice();

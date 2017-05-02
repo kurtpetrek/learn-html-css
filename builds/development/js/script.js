@@ -455,8 +455,13 @@ var testUserSubmit = function () {
       document.querySelector("#score-holder").innerHTML = score;
 
       document.querySelector(".question-feedback").innerHTML += cleanHTMLString(currentQuestion.answerExplained);
+      
+      document.querySelector("#main-btn").classList.add("hide");
+      document.querySelector("#next-question").classList.remove("hide");
+      
+      document.querySelector("#next-question").addEventListener("click", testUserSubmit, false);
 
-      document.querySelector("#main-btn").innerHTML = "Next Question";
+    //  document.querySelector("#main-btn").innerHTML = "Next Question";
     }
   } else if (playing && !(document.body.contains(document.querySelector(".chosen")))) {
     if (!document.querySelector(".question-container-choices").classList.contains("wiggle")) {
@@ -473,13 +478,18 @@ var testUserSubmit = function () {
 
 var createQuestion = function (obj) {
   var question,
-    feedback,
-    choices;
+      feedback,
+      choices,
+      nextQuestionContainer,
+      nextQuestionBtn;
   playing = true;
   document.querySelector('#score-holder').scrollIntoView();
   
+  document.querySelector("#main-btn").classList.remove("hide");
+  
   document.querySelector("#main-btn").innerHTML = "Submit Answer";
   document.querySelector("#question-container").innerHTML = "";
+  
   question = createEasyEl("p", "question-container-question");
   question.innerHTML = cleanHTMLString(obj.question);
   document.querySelector("#question-container").appendChild(question);
@@ -487,8 +497,17 @@ var createQuestion = function (obj) {
   feedback = createEasyEl("div", "question-feedback");
   feedback.id = "feedback";
   document.querySelector("#question-container").appendChild(feedback);
+  
+  nextQuestionContainer = createEasyEl("div", "text-center");
+  nextQuestionBtn = createEasyEl("div", ["btn", "hide"]);
+  nextQuestionBtn.id = "next-question";
+  nextQuestionBtn.innerHTML = "Next Question";
+  nextQuestionContainer.appendChild(nextQuestionBtn);
+  
+  document.querySelector("#question-container").appendChild(nextQuestionContainer);
 
   choices = createEasyEl("ol", "question-container-choices");
+  
   for (var x = 0; x < 4; x++) {
     var answerEl = createEasyEl("li", "choice");
     var current = "choice" + (x + 1);
@@ -497,7 +516,8 @@ var createQuestion = function (obj) {
       choices.appendChild(answerEl);
     }
   }
-  choices.addEventListener("click", this.listenForUserChoice, false);
+  
+  choices.addEventListener("click", listenForUserChoice, false);
   document.querySelector("#question-container").appendChild(choices);
 };
 

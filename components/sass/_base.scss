@@ -17,7 +17,7 @@ body {
 h1 {
   font-size: 2rem;
   text-align: center;
-  padding: .5em;
+  padding: .5em 70px;
   color: $clr-1;
   //background: $clr-2;
   border-bottom: 3px solid $clr-1;
@@ -37,7 +37,7 @@ h2 {
   width: 80%;
   padding: 1rem;
   margin: 1em auto 2em;
-  line-height: 1.5em;
+  line-height: 1.3em;
   box-shadow: 5px 5px rgba(0,0,0,0.5);
   word-wrap: break-word;
   
@@ -55,7 +55,7 @@ h2 {
 
 .question-container-choices {
   width: 60%;
-  margin: 2rem auto;
+  margin: 2rem auto 1rem;
   padding: .5rem;
   background: $clr-4;
   list-style: upper-latin;
@@ -65,7 +65,8 @@ h2 {
 
 @media (max-width: 500px) {
   .question-container-choices {
-    width: 90%;
+    width: 100%;
+    padding: .5rem 0rem;
   }
   .question-container-question {
     width: 100%;
@@ -77,6 +78,7 @@ h2 {
   color: $clr-3;
   padding: .5rem;
   padding-right: 4rem;
+  line-height: 1.5em;
   margin: 1rem;
   cursor: pointer;
   position: relative;
@@ -94,6 +96,12 @@ h2 {
     height: 1rem;
     border: 5px solid $clr-3;
     transition: .5s;
+  }
+}
+
+@media (max-width: 500px) {
+  .choice {
+    margin: 1rem .4rem;
   }
 }
 
@@ -159,23 +167,30 @@ h2 {
   
 }
 
-.question-wrong {
+.question-feedback {
   width: 80%;
   margin: auto;
+  line-height: 1.3em;
+}
+
+@media (max-width: 500px) {
+  .question-feedback {
+    width: 95%;
+  }
+}
+
+
+.question-wrong {
   background: $clr-2;
   padding: 1em;
-  
   &:first-line {
     font-size: 1.3rem;
   }
 }
 
 .question-right {
-  width: 80%;
-  margin: auto;
   background: $clr-5;
   padding: 1em;
-  
   &:first-line {
     font-size: 1.3rem;
   }
@@ -198,4 +213,12 @@ h2 {
   100% {
     transform: rotate(0deg);
   }
+}
+
+
+.hide {
+  display: none;
+  opacity: 0;
+  width: 0px;
+  height: 0px;
 }

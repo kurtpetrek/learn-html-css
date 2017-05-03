@@ -159,4 +159,37 @@ font-family: Helvetica, sans-serif;
 You can set the font of an element by setting the font-family property to a value or values like this font-family: Helvetica, sans-serif; In this example Helvetica will try to load first, if Helvetica is not available the computers default sans-serif font will be used.
 
 
+5-3-17
 
+How is an elements height determined by default?
+Elements are always 100px in height by default.
+Elements inherit the height of their parent.
+Elements will get their height based on content by default.
+Elements will not have a height unless it is defined by CSS.
+
+By default elements will get their height based on their content.
+
+
+When building a website with only HTML and CSS what document does the site start with?
+start.html
+home.html
+about.html
+index.html
+
+A website built with only HTML and CSS needs an index.html file, this is the starting point for the site.
+
+What is the element in which all html code is nested within an html document?
+<html>
+<site>
+<head>
+<body>
+
+All HTML code should be nested within opening and closing <html> tags.
+
+What are the two direct children of the <html> element?
+<head> and <body>
+<son> and <daughter>
+<a> and <b>
+The <html> element has no children.
+
+<head> and <body> are the two direct children of an HTML document. The head element contains information about the website while the body element holds all of the html which is display within the webpage.

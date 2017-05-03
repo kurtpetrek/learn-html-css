@@ -363,6 +363,42 @@ var questions = [{
     choice4: 'font-family: Helvetica, sans-serif;',
     answer: 'font-family: Helvetica, sans-serif;',
     answerExplained: 'You can set the font of an element by setting the font-family property to a value or values like this font-family: Helvetica, sans-serif; In this example Helvetica will try to load first, if Helvetica is not available the computers default sans-serif font will be used.'
+  },{
+    multipleAnswers: false,
+    question: "How is an elements height determined by default?",
+    choice1: 'Elements are always 100px in height by default.',
+    choice2: 'Elements inherit the height of their parent.',
+    choice3: 'Elements will get their height based on content by default.',
+    choice4: 'Elements will not have a height unless it is defined by CSS.',
+    answer: 'Elements will get their height based on content by default.',
+    answerExplained: 'By default elements will get their height based on their content.'
+  },{
+    multipleAnswers: false,
+    question: "When building a website with only HTML and CSS what document does the site start with?",
+    choice1: 'start.html',
+    choice2: 'home.html',
+    choice3: 'about.html',
+    choice4: 'index.html',
+    answer: 'index.html',
+    answerExplained: 'A website built with only HTML and CSS needs an index.html file, this is the starting point for the site.'
+  },{
+    multipleAnswers: false,
+    question: "What is the element in which all html code is nested within an html document?",
+    choice1: '<html>',
+    choice2: '<site>',
+    choice3: '<head>',
+    choice4: '<body>',
+    answer: '<html>',
+    answerExplained: 'All HTML code should be nested within opening and closing <html> tags.'
+  },{
+    multipleAnswers: false,
+    question: "What are the two direct children of the <html> element?",
+    choice1: '<head> and <body>',
+    choice2: '<son> and <daughter>',
+    choice3: '<a> and <b>',
+    choice4: 'The <html> element has no children.',
+    answer: '<head> and <body>',
+    answerExplained: '<head> and <body> are the two direct children of an HTML document. The head element contains information about the website while the body element holds all of the html which is display within the webpage.'
   }];
 
 var savedQuestions = questions.slice();

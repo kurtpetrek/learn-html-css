@@ -193,3 +193,70 @@ What are the two direct children of the <html> element?
 The <html> element has no children.
 
 <head> and <body> are the two direct children of an HTML document. The head element contains information about the website while the body element holds all of the html which is display within the webpage.
+
+
+
+
+6-2-17
+
+What attribute and value is used on an <a> tag to make the link open in a new tab within the browser?
+open=“new”
+href=“tab”
+tab=“true”
+target=“_blank”
+
+The attribute and value given to <a> tags for them to display the link in a new tab is target=“_blank”, <a href=“http://kurtpetrek.com” target=“_blank”>more</a>
+
+
+
+Absolute links are links that connect to a file within the same website such as <a href=“about.html”>about</a>.
+True
+False
+
+False, absolute links are links that point to an exact URL generally outside of the current website, <a href=“http://google.com”>google</a>, relative links point to file within the website using a relative file path, <a href=“about.html”>about</a>.
+
+
+Giving an element the CSS declaration padding: 10px 5px; would…
+Apply 10px of padding on the top and bottom and 5px of padding on the left and right.
+Apply 10px of padding on the left and right and 5px of padding on the top and bottom.
+Not work, the padding property can only accept one value.
+Not work, padding cannot be measured in pixels.
+
+When giving the padding property two values the first value applies to the top and bottom the second value applies to the left and right, so padding: 10px 5px; would apply 10px of padding on the top and bottom and 5px of padding on the left and right.
+
+
+
+
+Which example shows an element with two classes assigned to it?
+<div class=“container” class=“center-text”></div>
+<div class=“container center-text”></div>
+<div class=container center-text></div>
+An element cannot be given more than one class.
+
+<div class=“container center-text”></div> is the proper html syntax to assign multiple classes to a div element. The class names are separated with a space and must be in quotes.
+
+
+
+
+
+The CSS statement p:nth-child(2){ font-size: 20px } on a CSS document linked to an HTML document would do what?
+
+Set the font size of the second paragraph in the document to 20px.
+Set the font size of all paragraphs that are the second child of their parent to 20px.
+Set the font size of all paragraphs that are the third child of their parent to 20px.
+Nothing, p:nth-child(2) is not a valid CSS selector.
+
+
+The CSS statement p:nth-child(2){ font-size: 20px } would set the font size of all paragraphs that are the second child of their parent to 20px.
+
+
+
+Which of the following are not a valid border-style value?
+dashed	
+double
+groove
+standard
+
+standard
+
+Standard is not a valid value for a CSS border-style property but these are: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, initial, and inherit.	

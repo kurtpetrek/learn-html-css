@@ -363,6 +363,96 @@ var questions = [{
     choice4: 'font-family: Helvetica, sans-serif;',
     answer: 'font-family: Helvetica, sans-serif;',
     answerExplained: 'You can set the font of an element by setting the font-family property to a value or values like this font-family: Helvetica, sans-serif; In this example Helvetica will try to load first, if Helvetica is not available the computers default sans-serif font will be used.'
+  },{
+    multipleAnswers: false,
+    question: "How is an elements height determined by default?",
+    choice1: 'Elements are always 100px in height by default.',
+    choice2: 'Elements inherit the height of their parent.',
+    choice3: 'Elements will get their height based on content by default.',
+    choice4: 'Elements will not have a height unless it is defined by CSS.',
+    answer: 'Elements will get their height based on content by default.',
+    answerExplained: 'By default elements will get their height based on their content.'
+  },{
+    multipleAnswers: false,
+    question: "When building a website with only HTML and CSS what document does the site start with?",
+    choice1: 'start.html',
+    choice2: 'home.html',
+    choice3: 'about.html',
+    choice4: 'index.html',
+    answer: 'index.html',
+    answerExplained: 'A website built with only HTML and CSS needs an index.html file, this is the starting point for the site.'
+  },{
+    multipleAnswers: false,
+    question: "What is the element in which all html code is nested within an html document?",
+    choice1: '<html>',
+    choice2: '<site>',
+    choice3: '<head>',
+    choice4: '<body>',
+    answer: '<html>',
+    answerExplained: 'All HTML code should be nested within opening and closing <html> tags.'
+  },{
+    multipleAnswers: false,
+    question: "What are the two direct children of the <html> element?",
+    choice1: '<head> and <body>',
+    choice2: '<son> and <daughter>',
+    choice3: '<a> and <b>',
+    choice4: 'The <html> element has no children.',
+    answer: '<head> and <body>',
+    answerExplained: '<head> and <body> are the two direct children of an HTML document. The head element contains information about the website while the body element holds all of the html which is display within the webpage.'
+  },{
+    multipleAnswers: false,
+    question: "What attribute and value is used on an <a> tag to make the link open in a new tab within the browser?",
+    choice1: 'open=“new”',
+    choice2: 'href=“tab”',
+    choice3: 'tab=“true”',
+    choice4: 'target=“_blank”',
+    answer: 'target=“_blank”',
+    answerExplained: 'The attribute and value given to <a> tags for them to display the link in a new tab is target=“_blank”, <a href=“http://kurtpetrek.com” target=“_blank”>Kurt Petrek</a>'
+  },{
+    multipleAnswers: false,
+    question: "Absolute links are links that connect to a file within the same website such as <a href=“about.html”>about</a>.",
+    choice1: 'True',
+    choice2: 'False',
+    choice3: '',
+    choice4: '',
+    answer: 'False',
+    answerExplained: 'False, absolute links are links that point to an exact URL generally outside of the current website, <a href=“http://google.com”>google</a>, relative links point to file within the website using a relative file path, <a href=“about.html”>about</a>.'
+  },{
+    multipleAnswers: false,
+    question: "Giving an element the CSS declaration padding: 10px 5px; would…",
+    choice1: 'Apply 10px of padding on the top and bottom and 5px of padding on the left and right.',
+    choice2: 'Apply 10px of padding on the left and right and 5px of padding on the top and bottom.',
+    choice3: 'Not work, the padding property can only accept one value.',
+    choice4: 'Not work, padding cannot be measured in pixels.',
+    answer: 'Apply 10px of padding on the top and bottom and 5px of padding on the left and right.',
+    answerExplained: 'When giving the padding property two values the first value applies to the top and bottom the second value applies to the left and right, so padding: 10px 5px; would apply 10px of padding on the top and bottom and 5px of padding on the left and right.'
+  },{
+    multipleAnswers: false,
+    question: "Which example shows an element with two classes assigned to it?",
+    choice1: '<div class=“container” class=“center-text”></div>',
+    choice2: '<div class=container center-text></div>',
+    choice3: '<div class=“container center-text”></div>',
+    choice4: 'An element cannot be given more than one class.',
+    answer: '<div class=“container center-text”></div>',
+    answerExplained: '<div class=“container center-text”></div> is the proper html syntax to assign multiple classes to a div element. The class names are separated with a space and must be in quotes.'
+  },{
+    multipleAnswers: false,
+    question: "The CSS statement p:nth-child(2){ font-size: 20px } on a CSS document linked to an HTML document would do what?",
+    choice1: 'Set the font size of the second paragraph in the document to 20px.',
+    choice2: 'Set the font size of all paragraphs that are the second child of their parent to 20px.',
+    choice3: 'Set the font size of all paragraphs that are the third child of their parent to 20px.',
+    choice4: 'Nothing, p:nth-child(2) is not a valid CSS selector.',
+    answer: 'Set the font size of all paragraphs that are the second child of their parent to 20px.',
+    answerExplained: 'The CSS statement p:nth-child(2){ font-size: 20px } would set the font size of all paragraphs that are the second child of their parent to 20px.'
+  },{
+    multipleAnswers: false,
+    question: "Which of the following are not a valid border-style value?",
+    choice1: 'dashed',
+    choice2: 'double',
+    choice3: 'groove',
+    choice4: 'standard',
+    answer: 'standard',
+    answerExplained: 'Standard is not a valid value for a CSS border-style property but these are: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, outset, initial, and inherit.'
   }];
 
 var savedQuestions = questions.slice();
